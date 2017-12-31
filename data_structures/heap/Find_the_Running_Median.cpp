@@ -1,3 +1,24 @@
+/*
+Concept:
+	To solve this problem: use two heaps minHeap and maxHeap. 
+	minHeap would contain all the elements greater than median (of previous iteration) and 
+	maxHeap would contain elements smaller than or equal to median(of previous iterations).
+
+Insertion: 
+	To insert first two elements, insert bigger element in minHeap and smaller in maxHeap.
+	If new element is greater than running median (last median value); add this element to minHeap else add new element to maxHeap
+
+Constraint: 
+	If the difference of size(minHeap) and size(maxHeap) is greater than 1 , 
+	then pop the element from the heap of bigger size and insert into other heap 
+
+Output:
+	1. If minHeap.size()== maxHeap.size(); median=(minHeap.topElement()+ maxHeap.topElement())/2; 
+	2. Else If minHeap.size()>maxHeap.size() median=minHeap.topElement(); 
+	3. Else median=maxHeap.topElement(); 
+
+*/
+
 #include <map>
 #include <set>
 #include <list>
@@ -225,7 +246,6 @@ float calculateMedian(minIntHeap &minHeap, maxIntHeap &maxHeap){
 }
 
 int main() {
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
     int num;
     cin>>num;
     minIntHeap minHeap;
